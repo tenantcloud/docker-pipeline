@@ -9,6 +9,7 @@
 - openssl
 - slack (CLI Client)
 - vault
+- awscli
 
 ## Configure slack
 

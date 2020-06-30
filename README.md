@@ -7,7 +7,8 @@
 - curl
 - git
 - openssl
-- slack (CLI Cliemt)
+- slack (CLI Client)
+- vault
 
 ## Configure slack
 

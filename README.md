@@ -7,4 +7,11 @@
 - curl
 - git
 - openssl
+- slack (CLI Cliemt)
+
+## Configure slack
+
+```bash
+echo "slack API token" > /usr/local/bin/.slack
+```
 

@@ -7,7 +7,7 @@ RUN apk add --update --no-cache \
     git \
     openssl \
     unzip \
-    && pip3 --no-cache-dir install awscli \
+    && pip3 --no-cache-dir install awscli ecs-deploy \
     && curl -L -o /usr/local/bin/slack https://git.io/fAhXh \
     && chmod +x /usr/local/bin/slack \
     && VAULT_VERSION=1.4.2 \

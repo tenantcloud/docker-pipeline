@@ -5,7 +5,7 @@
 - bash
 - jq
 - curl
-- git
+- git (+ lfs)
 - openssl
 - slack (CLI Client)
 - vault

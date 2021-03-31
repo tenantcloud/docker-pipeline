@@ -7,6 +7,7 @@ RUN apk add --no-cache \
     jq \
     curl \
     git \
+    git-lfs \
     openssl \
     unzip \
     openssh \

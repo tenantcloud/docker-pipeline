@@ -1,6 +1,8 @@
 FROM python:3.7.4-alpine3.10
 
-RUN apk add --update --no-cache \
+ENV ALPINE_MIRROR "http://dl-cdn.alpinelinux.org/alpine"
+
+RUN apk add --no-cache \
     bash \
     jq \
     curl \
@@ -15,5 +17,7 @@ RUN apk add --update --no-cache \
     && curl -sSLo /tmp/vault.zip https://releases.hashicorp.com/vault/$VAULT_VERSION/vault_${VAULT_VERSION}_linux_amd64.zip \
     && unzip -d /usr/bin /tmp/vault.zip \
     && rm -rf /tmp/vault.zip \
-    && curl -L -s https://git.io/JU3Fy | bash
+    && curl -L -s https://git.io/JU3Fy | bash \
+    && echo "${ALPINE_MIRROR}/v3.11/main/" >> /etc/apk/repositories \
+    && apk add nodejs npm yarn --repository="http://dl-cdn.alpinelinux.org/alpine/v3.11/main/"
 

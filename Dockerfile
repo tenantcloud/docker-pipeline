@@ -1,6 +1,4 @@
-FROM python:3.7.4-alpine3.10
-
-ENV ALPINE_MIRROR "http://dl-cdn.alpinelinux.org/alpine"
+FROM python:alpine3.12
 
 RUN apk add --no-cache \
     bash \
@@ -14,11 +12,17 @@ RUN apk add --no-cache \
     && pip3 --no-cache-dir install awscli ecs-deploy \
     && curl -L -o /usr/local/bin/slack https://git.io/fAhXh \
     && chmod +x /usr/local/bin/slack \
-    && VAULT_VERSION=1.4.2 \
+    && VAULT_VERSION=1.7.0 \
     && curl -sSLo /tmp/vault.zip https://releases.hashicorp.com/vault/$VAULT_VERSION/vault_${VAULT_VERSION}_linux_amd64.zip \
     && unzip -d /usr/bin /tmp/vault.zip \
     && rm -rf /tmp/vault.zip \
     && curl -L -s https://git.io/JU3Fy | bash \
-    && echo "${ALPINE_MIRROR}/v3.11/main/" >> /etc/apk/repositories \
-    && apk add nodejs npm yarn --repository="http://dl-cdn.alpinelinux.org/alpine/v3.11/main/"
+    && curl -L -s https://github.com/tenantcloud/tcctl/archive/master.zip -o /tmp/tcctl.zip \
+    && cd /tmp \
+    && unzip -q tcctl.zip \
+    && mkdir /opt/tcctl \
+    && cp -r /tmp/tcctl-master/* /opt/tcctl/ \
+    && ln -s /opt/tcctl/tcctl /usr/bin/tcctl \
+    && rm -rf /tmp/* \
+    && apk add nodejs npm yarn
 

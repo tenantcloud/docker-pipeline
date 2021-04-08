@@ -13,6 +13,7 @@
 - yarn (1.16.0)
 - npm (6.14.11)
 - node (v12.21.0)
+- tcctl
 
 ## Configure slack
 

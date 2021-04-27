@@ -15,7 +15,7 @@
 - node (v12.21.0)
 - tcctl
 
-## Configure slack
+## Configure a Slack
 
 ```bash
 echo "slack API token" > /usr/local/bin/.slack

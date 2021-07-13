@@ -28,4 +28,4 @@ RUN apk add --no-cache \
     && npm install -g appcenter-cli
 
 RUN git config --global user.email "team@tenantcloud.com" \
-    git config --global user.name "tenantcloudteam"
+    && git config --global user.name "tenantcloudteam"

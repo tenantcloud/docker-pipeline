@@ -24,5 +24,8 @@ RUN apk add --no-cache \
     && cp -r /tmp/tcctl-master/* /opt/tcctl/ \
     && ln -s /opt/tcctl/tcctl /usr/bin/tcctl \
     && rm -rf /tmp/* \
-    && apk add nodejs npm yarn
+    && apk add nodejs npm yarn \
+    && npm install -g appcenter-cli
 
+RUN git config --global user.email "team@tenantcloud.com" \
+    git config --global user.name "tenantcloudteam"

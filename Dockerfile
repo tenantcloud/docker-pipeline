@@ -1,4 +1,4 @@
-FROM python:alpine3.12
+FROM docker:dind
 
 RUN apk add --no-cache \
     bash \
@@ -9,6 +9,8 @@ RUN apk add --no-cache \
     openssl \
     unzip \
     openssh \
+    python3 \
+    py3-pip \
     && pip3 --no-cache-dir install awscli ecs-deploy \
     && curl -L -o /usr/local/bin/slack https://git.io/fAhXh \
     && chmod +x /usr/local/bin/slack \
@@ -26,6 +28,5 @@ RUN apk add --no-cache \
     && rm -rf /tmp/* \
     && apk add nodejs npm yarn \
     && npm install -g appcenter-cli
-
 RUN git config --global user.email "team@tenantcloud.com" \
     && git config --global user.name "tenantcloudteam"

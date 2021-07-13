@@ -19,6 +19,8 @@
 - node (v12.21.0)
 - tcctl
 - appcenter-cli
+- python3
+- py3-pip
 
 ## Configure a Slack
 
